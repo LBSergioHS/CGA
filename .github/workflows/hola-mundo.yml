@@ -1,0 +1,14 @@
+name: hola-mundo #nombre del workflow
+on: [push]  #evento que lo activará
+jobs:  #Definición de los jobs
+  hola-mundo:  #Nombre del job
+    runs-on: ubuntu-latest #Máquina en la que se ejecutará
+    steps: #lista de tareas a realizar
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.8.1
+      
+      - name: Correr script
+        run: ./script/hola_mundo.js
