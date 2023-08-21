@@ -11,4 +11,4 @@ jobs:  #Definición de los jobs
         uses: actions/setup-node@v3.8.1
       
       - name: Correr script
-        run: ./script/hola_mundo.js
+        run: ./.github/script/hola_mundo.js
