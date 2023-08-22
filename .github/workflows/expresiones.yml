@@ -11,16 +11,16 @@ on:
             no_reto_expresiones:
                 description: 'Si no cumple con el requisito muestra una verificación cancelada'
                 required: true
-                default: 'Por desgracia no cumple el requisito'
+                default: 'Por desgracia, no cumple el requisito'
                 type: string
             validar:
-                description: 'Numero igual a 73 para verificar'
+                description: 'Número igual a 73 para verificar'
                 required: true
-                default: '72'
+                default: 72
                 type: integer
 jobs:
     cumple_reto:
-        if: ${{ inputs.numero_entero == 73}}
+        if: ${{ inputs.validar == 73 }}
         runs-on: ubuntu-latest
         steps: 
           - name: Checkout 
@@ -28,7 +28,7 @@ jobs:
           - name: Muestra la verificación
             run: echo ${{ inputs.reto_expresiones }}
     no_cumple_reto:
-        if: ${{ inputs.numero_entero != 73}}
+        if: ${{ inputs.validar != 73}}
         runs-on: ubuntu-latest
         steps: 
           - name: Checkout 
