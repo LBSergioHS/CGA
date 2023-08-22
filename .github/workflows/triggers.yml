@@ -4,7 +4,7 @@ on:                                                                             
     push:                                                                           #Primer método, este ocurre cuando se hace push al repositorio
         branches:                                                                   #Ocurre si se realiza en las ramas indicadas en este parámetro
             - main                                                                  #La rama por la cual realizará este evento es la main
-    pull-request:                                                                   #Segundo método, este ocurre al hacer pull-request 
+    pull_request:                                                                   #Segundo método, este ocurre al hacer pull-request 
         types: [ opened, closed ]                                                   #Tipo de pull-request por los cuales se activará este evento, en este caso es al abrir y cerrar un pull-request
     #issues:                                                                        #Tercer método, este ocurre al comentar una disfuncionalidad el código
     #    type:                                                                      #Tipo por el cual se lanza
