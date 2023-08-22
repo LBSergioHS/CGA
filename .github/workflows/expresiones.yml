@@ -1,7 +1,7 @@
 name: Reto 3
 run-name: Reto 3. Expresiones
 on: 
-    workflows_dispatch:
+    workflow_dispatch:
         inputs:
             reto_expresiones:
                 description: 'Si cumple con el requisito muestra una verificación'  
