@@ -6,9 +6,6 @@ on:                                                                             
             - main                                                                  #La rama por la cual realizará este evento es la main
     pull_request:                                                                   #Segundo método, este ocurre al hacer pull-request 
         types: [ opened, closed ]                                                   #Tipo de pull-request por los cuales se activará este evento, en este caso es al abrir y cerrar un pull-request
-    #issues:                                                                        #Tercer método, este ocurre al comentar una disfuncionalidad el código
-    #    type:                                                                      #Tipo por el cual se lanza
-    #        - labeled                                                              #En este caso se lanzaría si se ha añadido una etiqueta al comentario
     workflow_dispatch:                                                              #Cuarto método, permite a los usuarios ejecutar workflows manualmente
         inputs:                                                                     #Indicador de las entradas y sus opciones
             nombre_empresa:                                                         #Nombre de la primera entrada
@@ -16,6 +13,9 @@ on:                                                                             
                 required: true                                                      #Si es requerido o no
                 type: string                                                        #Tipo
                 default: Holasoft                                                   #Por defecto
+    #issues:                                                                        #Tercer método, este ocurre al comentar una disfuncionalidad el código
+    #    type:                                                                      #Tipo por el cual se lanza
+    #        - labeled                                                              #En este caso se lanzaría si se ha añadido una etiqueta al comentario
     #schedule:                                                                      #Quinto método, evento para programar cuando queremos que se vuelva a lanzar otro evento
     #    -cron: '55 11 22 8 2' horario utc, hay que cambiarlo                       #Instrucción para indicar la hora y la fecha.
 jobs:                                                                               #Trabajo que realizará cuando ocurran los eventos mencionados anteriormente
