@@ -1,13 +1,13 @@
-name: Aprendiendo GitHub Actions
-run-name: ¡Estoy aprendiendo GitHub Actions!
-on: [push]
-jobs:
-  hola-mundo:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Definir variable
-        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
-      - name: Correr script
-        run: python hola_mundo.py
+name: Aprendiendo GitHub Actions                                    #Nombre del action
+run-name: ¡Estoy aprendiendo GitHub Actions!                        #Nombre que aparece en GitHub cuando está corriendo
+on: [push]                                                          #Método por el que se lanza 
+jobs:                                                               #Trabajo que va a realizar y que hay que definir a continuación
+  hola-mundo:                                                       #Nombre de la primera tarea
+    runs-on: ubuntu-latest                                          #Sistema operativo donde queremos que corrá
+    steps:                                                          #Pasos que realizará
+      - name: Checkout                                              #Nombre del primer paso 
+        uses: actions/checkout@v3                                   #Checkout previo 
+      - name: Definir variable                                      #Nombre del segundo paso
+        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV     #Asignar valores a variables de entornos de GitHub
+      - name: Correr script                                         #Nombre del tercer paso
+        run: python hola_mundo.py                                   #Tipo de lenguaje y script al que apunta. Al estar en la rama main se puede apuntar al script de esta forma.
