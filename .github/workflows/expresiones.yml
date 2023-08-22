@@ -1,0 +1,37 @@
+name: Reto 3
+run-name: Reto 3. Expresiones
+on: 
+    workflows_dispatch:
+        inputs:
+            reto_expresiones:
+                description: 'Si cumple con el requisito muestra una verificación'  
+                required: true
+                default: 'Cumple con el requisito'
+                type: string
+            no_reto_expresiones:
+                description: 'Si no cumple con el requisito muestra una verificación cancelada'
+                required: true
+                default: 'Por desgracia no cumple el requisito'
+                type: string
+            validar:
+                description: 'Numero igual a 73 para verificar'
+                required: true
+                default: '72'
+                type: integer
+jobs:
+    cumple_reto:
+        if: ${{ inputs.numero_entero == 73}}
+        runs-on: ubuntu-latest
+        steps: 
+          - name: Checkout 
+            uses: actions/checkout@v3 
+          - name: Muestra la verificación
+            run: echo ${{ inputs.reto_expresiones }}
+    no_cumple_reto:
+        if: ${{ inputs.numero_entero != 73}}
+        runs-on: ubuntu-latest
+        steps: 
+          - name: Checkout 
+            uses: actions/checkout@v3 
+          - name: Muestra la verificación
+            run: echo ${{ inputs.no_reto_expresiones }}
