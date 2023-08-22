@@ -1,5 +1,5 @@
-name: Aprendiendo GitHub Actions                                    #Nombre del action
-run-name: ¡Estoy aprendiendo GitHub Actions!                        #Nombre que aparece en GitHub cuando está corriendo
+name: Reto 1                                                        #Nombre del action
+run-name: Reto 1. Hola mundo                                        #Nombre que aparece en GitHub cuando está corriendo
 on: [push]                                                          #Método por el que se lanza 
 jobs:                                                               #Trabajo que va a realizar y que hay que definir a continuación
   hola-mundo:                                                       #Nombre de la primera tarea
