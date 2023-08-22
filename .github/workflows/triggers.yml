@@ -29,7 +29,7 @@ jobs:                                                                           
           - name: Correr script                                                     #Nombre de la tercera tarea
             run: python hola_empresa.py                                             #Tipo de lenguaje y script al que apunta. Al estar en la rama main se puede apuntar al script de esta forma.
     no_workflow_dispatch:                                                           #Nombre del segundo trabajo
-        if: ${{ github.event_name != 'workflow_dispatch' }}                         #Instrucción que lanza estas tareas siempre y cuando no sean a raíz del workflow_dispatch
+        if: ${{ github.event_name == 'workflow_dispatch' }}                         #Instrucción que lanza estas tareas siempre y cuando no sean a raíz del workflow_dispatch
         runs-on: ubuntu-latest                                                      #Sistema operativo donde queremos que corrá
         steps:                                                                      #Tareas que va a realizar
           - name: Ckechout                                                          #Nombre del primer paso
