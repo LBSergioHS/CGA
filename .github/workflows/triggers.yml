@@ -12,7 +12,7 @@ on:                                                                             
                 description: 'Nombre de la empresa en la que trabajo'               #Descripción 
                 required: true                                                      #Si es requerido o no
                 type: string                                                        #Tipo
-                default: Holasoft                                                   #Por defecto
+                default: 'Holasoft'                                                 #Por defecto
     #issues:                                                                        #Tercer método, este ocurre al comentar una disfuncionalidad el código
     #    type:                                                                      #Tipo por el cual se lanza
     #        - labeled                                                              #En este caso se lanzaría si se ha añadido una etiqueta al comentario
