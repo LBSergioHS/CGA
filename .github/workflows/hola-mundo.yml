@@ -10,4 +10,4 @@ jobs:                                                               #Trabajo que
       - name: Definir variable                                      #Nombre del segundo paso
         run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV     #Asignar valores a variables de entornos de GitHub
       - name: Correr script                                         #Nombre del tercer paso
-        run: python hola_mundo.py                                   #Tipo de lenguaje y script al que apunta. Al estar en la rama main se puede apuntar al script de esta forma.
+        run: python ./src/hola_mundo.py                                   #Tipo de lenguaje y script al que apunta. Al estar en la rama main se puede apuntar al script de esta forma.

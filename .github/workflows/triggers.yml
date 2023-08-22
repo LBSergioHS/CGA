@@ -24,17 +24,17 @@ jobs:                                                                           
         steps:                                                                      #Tareas que va a realizar
           - name: Checkout                                                          #Nombre de la primera tarea
             uses: actions/checkout@v3                                               #Checkout previo
-          - name: Definir nombre de la empresa                                      #Nombre de la segunda tarea
+          - name: Definir nombre                                                    #Nombre de la segunda tarea
             run: echo "USERNAME=${{ github.actor}}" >> $GITHUB_ENV                  #Mostrará el nombre del workflows dispatch
           - name: Correr script                                                     #Nombre de la tercera tarea
-            run: python hola_mundo.py                                               #Tipo de lenguaje y script al que apunta. Al estar en la rama main se puede apuntar al script de esta forma.
+            run: python ./src/hola_mundo.py                                               #Tipo de lenguaje y script al que apunta. Al estar en la rama main se puede apuntar al script de esta forma.
     solo_workflow_dispatch:                                                         #Nombre del segundo trabajo
         if: ${{ github.event_name == 'workflow_dispatch' }}                         #Instrucción que lanza estas tareas siempre y cuando no sean a raíz del workflow_dispatch
         runs-on: ubuntu-latest                                                      #Sistema operativo donde queremos que corrá
         steps:                                                                      #Tareas que va a realizar
           - name: Ckechout                                                          #Nombre del primer paso
             uses: actions/checkout@v3                                               #Checkout previo 
-          - name: Definir variable                                                  #Nombre del segundo paso
+          - name: Definir nombre de la empresa                                      #Nombre del segundo paso
             run: echo "USERNAME=${{ inputs.nombre_empresa }}" >> $GITHUB_ENV        #Asignar valores a variables de entornos de GitHub
           - name: Correr script                                                     #Nombre del tercer paso
-            run: python hola_empresa.py                                             #Tipo de lenguaje y script al que apunta. Al estar en la rama main se puede apuntar al script de esta forma.
+            run: python ./src/hola_empresa.py                                             #Tipo de lenguaje y script al que apunta. Al estar en la rama main se puede apuntar al script de esta forma.
