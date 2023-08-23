@@ -22,7 +22,7 @@ jobs:
       - name: Correr script
         run: python ./src/hola_github.py
   mostrar_variables:
-    if: ${{ vars.PRUEBA == Prueba_73 }}
+    if: ${{ vars.PRUEBA == 'Prueba_73' }}
     env:
       FRASE: A continuación se mostrarán las variables creadas en GitHub. 
     runs-on: ubuntu-latest
