@@ -19,7 +19,7 @@ jobs:
               echo "AGE=${{ env.EDAD }}" >> $GITHUB_ENV &&
               echo "LOCATION=${{ env.LOCALIDAD }}" >> $GITHUB_ENV &&
               echo "COUNTRY=${{ env.PAIS }}" >> $GITHUB_ENV &&
-              echo "INFORMATION=${{ env.INFORMACION }}" >> $GITHUB_ENV &&
+              echo "INFORMATION=${{ env.INFORMACION }}" >> $GITHUB_ENV 
       - name: Correr script
         run: python ./src/hola_github.py
   mostrar_variables:
