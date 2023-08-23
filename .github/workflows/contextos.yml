@@ -2,9 +2,9 @@ name: Reto 4
 run-name: Reto 4. Contextos
 on: push
 jobs:
-    nombre_actor:  
-        runs-on: ubuntu-latest
-        steps: 
-          - name: Muestra el nombre del autor
-            run: echo ${{ github.actor }}
+  nombre_autor:  
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Muestra el nombre del autor
+        run: echo ${{ github.actor }}
 

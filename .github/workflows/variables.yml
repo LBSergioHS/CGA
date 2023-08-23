@@ -1,0 +1,33 @@
+name: Reto 5
+run-name: Reto 5. Variables
+on: push
+env:
+  NOMBRE: Sergio López Bautista
+  EDAD: 24
+  LOCALIDAD: Ciudad Real
+  PAIS: España
+  INFORMACION: me encuentro muy contento ya que he aprendido mucho sobre GitHub Actions
+jobs:
+  carta_presentacion:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Definir variables
+        run:  echo "USERNAME=${{ env.NOMBRE }}" >> $GITHUB_ENV
+              echo "AGE=${{ env.EDAD }}" >> $GITHUB_ENV
+              echo "LOCATION=${{ env.LOCALIDAD }}" >> $GITHUB_ENV
+              echo "COUNTRY=${{ env.PAIS }}" >> $GITHUB_ENV
+              echo "INFORMATION=${{ env.INFORMACION }}" >> $GITHUB_ENV
+      - name: Correr script
+        run: python ./src/hola_github.py
+  mostrar_variables:
+    if: ${{ vars.PRUEBA == Prueba_73 }}
+    env:
+      FRASE: A continuación se mostrarán las variables creadas en GitHub. 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrar variables
+        run: echo $FRASE \n $VARIABLES
+        env:
+          VARIABLES: ${{ toJSON(vars) }}

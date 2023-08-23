@@ -1,40 +1,40 @@
-name: Reto 2                                                                        #Nombre del actions
-run-name: Reto 2. Triggers                                                          #Nombre que aparece en el actions cuando se realiza
-on:                                                                                 #Método por el cual se realiza. En este caso, tenemos 3 formas y 2 formas comentada
-    push:                                                                           #Primer método, este ocurre cuando se hace push al repositorio
-        branches:                                                                   #Ocurre si se realiza en las ramas indicadas en este parámetro
-            - main                                                                  #La rama por la cual realizará este evento es la main
-    pull_request:                                                                   #Segundo método, este ocurre al hacer pull-request 
-        types: [ opened, closed ]                                                   #Tipo de pull-request por los cuales se activará este evento, en este caso es al abrir y cerrar un pull-request
-    workflow_dispatch:                                                              #Cuarto método, permite a los usuarios ejecutar workflows manualmente
-        inputs:                                                                     #Indicador de las entradas y sus opciones
-            nombre_empresa:                                                         #Nombre de la primera entrada
-                description: 'Nombre de la empresa en la que trabajo'               #Descripción 
-                required: true                                                      #Si es requerido o no
-                type: string                                                        #Tipo
-                default: 'Holasoft'                                                 #Por defecto
-    #issues:                                                                        #Tercer método, este ocurre al comentar una disfuncionalidad el código
-    #    type:                                                                      #Tipo por el cual se lanza
-    #        - labeled                                                              #En este caso se lanzaría si se ha añadido una etiqueta al comentario
-    #schedule:                                                                      #Quinto método, evento para programar cuando queremos que se vuelva a lanzar otro evento
-    #    -cron: '55 11 22 8 2' horario utc, hay que cambiarlo                       #Instrucción para indicar la hora y la fecha.
-jobs:                                                                               #Trabajo que realizará cuando ocurran los eventos mencionados anteriormente
-    todos_triggers:                                                                 #Nombre del primer trabajo
-        runs-on: ubuntu-latest                                                      #Sistema operativo donde queremos que corrá
-        steps:                                                                      #Tareas que va a realizar
-          - name: Checkout                                                          #Nombre de la primera tarea
-            uses: actions/checkout@v3                                               #Checkout previo
-          - name: Definir nombre                                                    #Nombre de la segunda tarea
-            run: echo "USERNAME=${{ github.actor}}" >> $GITHUB_ENV                  #Mostrará el nombre del workflows dispatch
-          - name: Correr script                                                     #Nombre de la tercera tarea
-            run: python ./src/hola_mundo.py                                               #Tipo de lenguaje y script al que apunta. Al estar en la rama main se puede apuntar al script de esta forma.
-    solo_workflow_dispatch:                                                         #Nombre del segundo trabajo
-        if: ${{ github.event_name == 'workflow_dispatch' }}                         #Instrucción que lanza estas tareas siempre y cuando no sean a raíz del workflow_dispatch
-        runs-on: ubuntu-latest                                                      #Sistema operativo donde queremos que corrá
-        steps:                                                                      #Tareas que va a realizar
-          - name: Ckechout                                                          #Nombre del primer paso
-            uses: actions/checkout@v3                                               #Checkout previo 
-          - name: Definir nombre de la empresa                                      #Nombre del segundo paso
-            run: echo "USERNAME=${{ inputs.nombre_empresa }}" >> $GITHUB_ENV        #Asignar valores a variables de entornos de GitHub
-          - name: Correr script                                                     #Nombre del tercer paso
-            run: python ./src/hola_empresa.py                                             #Tipo de lenguaje y script al que apunta. Al estar en la rama main se puede apuntar al script de esta forma.
+name: Reto 2                                                                    #Nombre del actions
+run-name: Reto 2. Triggers                                                      #Nombre que aparece en el actions cuando se realiza
+on:                                                                             #Método por el cual se realiza. En este caso, tenemos 3 formas y 2 formas comentada
+  push:                                                                         #Primer método, este ocurre cuando se hace push al repositorio
+    branches:                                                                   #Ocurre si se realiza en las ramas indicadas en este parámetro
+      - main                                                                    #La rama por la cual realizará este evento es la main
+  pull_request:                                                                 #Segundo método, este ocurre al hacer pull-request 
+    types: [ opened, closed ]                                                   #Tipo de pull-request por los cuales se activará este evento, en este caso es al abrir y cerrar un pull-request
+  workflow_dispatch:                                                            #Cuarto método, permite a los usuarios ejecutar workflows manualmente
+    inputs:                                                                     #Indicador de las entradas y sus opciones
+      nombre_empresa:                                                           #Nombre de la primera entrada
+        description: 'Nombre de la empresa en la que trabajo'                   #Descripción 
+        required: true                                                          #Si es requerido o no
+        type: string                                                            #Tipo
+        default: 'Holasoft'                                                     #Por defecto
+  #issues:                                                                      #Tercer método, este ocurre al comentar una disfuncionalidad el código
+  #  type:                                                                      #Tipo por el cual se lanza
+  #    - labeled                                                                #En este caso se lanzaría si se ha añadido una etiqueta al comentario
+  #schedule:                                                                    #Quinto método, evento para programar cuando queremos que se vuelva a lanzar otro evento
+  #  -cron: '55 11 22 8 2' horario utc, hay que cambiarlo                       #Instrucción para indicar la hora y la fecha.
+jobs:                                                                           #Trabajo que realizará cuando ocurran los eventos mencionados anteriormente
+  todos_triggers:                                                               #Nombre del primer trabajo
+    runs-on: ubuntu-latest                                                      #Sistema operativo donde queremos que corrá
+    steps:                                                                      #Tareas que va a realizar
+      - name: Checkout                                                          #Nombre de la primera tarea
+        uses: actions/checkout@v3                                               #Checkout previo
+      - name: Definir nombre                                                    #Nombre de la segunda tarea
+        run: echo "USERNAME=${{ github.actor}}" >> $GITHUB_ENV                  #Mostrará el nombre del workflows dispatch
+      - name: Correr script                                                     #Nombre de la tercera tarea
+        run: python ./src/hola_mundo.py                                         #Tipo de lenguaje y script al que apunta. Al estar en la rama main se puede apuntar al script de esta forma.
+  solo_workflow_dispatch:                                                       #Nombre del segundo trabajo
+    if: ${{ github.event_name == 'workflow_dispatch' }}                         #Instrucción que lanza estas tareas siempre y cuando no sean a raíz del workflow_dispatch
+    runs-on: ubuntu-latest                                                      #Sistema operativo donde queremos que corrá
+    steps:                                                                      #Tareas que va a realizar
+      - name: Ckechout                                                          #Nombre del primer paso
+        uses: actions/checkout@v3                                               #Checkout previo 
+      - name: Definir nombre de la empresa                                      #Nombre del segundo paso
+        run: echo "USERNAME=${{ inputs.nombre_empresa }}" >> $GITHUB_ENV        #Asignar valores a variables de entornos de GitHub
+      - name: Correr script                                                     #Nombre del tercer paso
+        run: python ./src/hola_empresa.py                                       #Tipo de lenguaje y script al que apunta. Al estar en la rama main se puede apuntar al script de esta forma.
