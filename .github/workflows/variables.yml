@@ -13,12 +13,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Definir variables
-        run:  echo "USERNAME=${{ env.NOMBRE }}" >> $GITHUB_ENV
-              echo "AGE=${{ env.EDAD }}" >> $GITHUB_ENV
-              echo "LOCATION=${{ env.LOCALIDAD }}" >> $GITHUB_ENV
-              echo "COUNTRY=${{ env.PAIS }}" >> $GITHUB_ENV
-              echo "INFORMATION=${{ env.INFORMACION }}" >> $GITHUB_ENV
+      - name: Definir nombre
+        run: echo "USERNAME=${{ env.NOMBRE }}" >> $GITHUB_ENV
+      - name: Definir edad
+        run: echo "AGE=${{ env.EDAD }}" >> $GITHUB_ENV
+      - name: Definir localidad
+        run: echo "LOCATION=${{ env.LOCALIDAD }}" >> $GITHUB_ENV
+      - name: Definir pais
+        run: echo "COUNTRY=${{ env.PAIS }}" >> $GITHUB_ENV
+      - name: Definir información
+        run: echo "INFORMATION=${{ env.INFORMACION }}" >> $GITHUB_ENV
       - name: Correr script
         run: python ./src/hola_github.py
   mostrar_variables:
@@ -28,6 +32,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Mostrar variables
-        run: echo $FRASE \n $VARIABLES
+        run: echo $FRASE $VARIABLES
         env:
           VARIABLES: ${{ toJSON(vars) }}
