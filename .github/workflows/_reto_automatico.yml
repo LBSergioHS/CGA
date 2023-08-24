@@ -1,0 +1,25 @@
+#Enviar un correo automático a gmail cada vez que se haga un evento a elegir
+
+name: Correo automático
+run-name: Correo automático
+on: push
+env: 
+  CORREO_REMITENTE: 16lobaser@gmail.com
+  CORREO_DESTINATARIO: 1999lopezbautistasergio@gmail.com
+  CORREO_ASUNTO: GitHub Actions correo automático
+  CORREO_CUERPO: Este correo es una prueba para automatizar correos desde GitHub Actions.
+jobs:
+  carta_presentacion:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Definir variables
+        run: >
+              echo "REMITENTE=${{ env.CORREO_REMITENTE }}" >> $GITHUB_ENV &&
+              echo "DESTINATARIO=${{ env.CORREO_DESTINATARIO }}" >> $GITHUB_ENV &&
+              echo "ASUNTO=${{ env.CORREO_ASUNTO }}" >> $GITHUB_ENV &&
+              echo "CUERPO=${{ env.CORREO_CUERPO }}" >> $GITHUB_ENV &&
+              echo "PASSWORD=${{ vars.CORREO_PASSWORD }}" >> $GITHUB_ENV
+      - name: Correr script
+        run: python ./src/hola_correo_automatico.py
