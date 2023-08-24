@@ -1,13 +1,14 @@
-name: "Flujo CI-Test"
-run-name: "Flujo CI - Test"
-on:
+comment: >
+  name: "Flujo CI-Test"
+  run-name: "Flujo CI - Test"
+  on:
   push:
     branches: [master]
   pull_request:
     branches: [master]
-env:
+  env:
   ANGULAR_CLI_VERSION: 13
-jobs:
+  jobs:
   lint:
     runs-on: ubuntu-latest
     steps:

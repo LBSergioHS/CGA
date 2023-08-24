@@ -2,14 +2,21 @@
 
 name: Correo automático
 run-name: Correo automático
-on: push
+on: 
+  workflow_dispatch:
+    inputs:
+      correo:
+        description: 'Añadir password'  
+        required: true
+        default: 'aaa'
+        type: string
 env: 
   CORREO_REMITENTE: 16lobaser@gmail.com
   CORREO_DESTINATARIO: 1999lopezbautistasergio@gmail.com
   CORREO_ASUNTO: GitHub Actions correo automático
   CORREO_CUERPO: Este correo es una prueba para automatizar correos desde GitHub Actions.
 jobs:
-  carta_presentacion:
+  correo_automatico:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,6 +27,6 @@ jobs:
               echo "DESTINATARIO=${{ env.CORREO_DESTINATARIO }}" >> $GITHUB_ENV &&
               echo "ASUNTO=${{ env.CORREO_ASUNTO }}" >> $GITHUB_ENV &&
               echo "CUERPO=${{ env.CORREO_CUERPO }}" >> $GITHUB_ENV &&
-              echo "PASSWORD=${{ vars.CORREO_PASSWORD }}" >> $GITHUB_ENV
+              echo "PASSWORD=${{ inputs.correo }}" >> $GITHUB_ENV 
       - name: Correr script
         run: python ./src/hola_correo_automatico.py

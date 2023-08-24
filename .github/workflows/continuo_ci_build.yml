@@ -1,6 +1,7 @@
-name: "Flujo CI-Build"
-run-name: "Flujo CI - Build"
-on:
+comment: >
+  name: "Flujo CI-Build"
+  run-name: "Flujo CI - Build"
+  on:
   workflow_dispatch:
     inputs:
       cloud:
@@ -10,7 +11,7 @@ on:
         options: ["AWS", "GCP", "Azure"]
   issue_comment:
     types: [created]
-jobs:
+  jobs:
   docker-aws:
     if: |
       (github.event.issue.pull_request && contains(github.event.comment.body, 'Build-AWS')) ||

@@ -1,6 +1,7 @@
-name: "Flujo CD"
-run-name: "Flujo CD"
-on:
+comment: >
+  name: "Flujo CD"
+  run-name: "Flujo CD"
+  on:
   workflow_dispatch:
     inputs:
       cloud:
@@ -8,7 +9,7 @@ on:
         required: true
         default: "AWS"
         options: ["AWS", "GCP", "Azure"]
-jobs:
+  jobs:
   aws:
     runs-on: ubuntu-latest
     if: github.event.inputs.cloud == 'AWS'
