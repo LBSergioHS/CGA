@@ -1,8 +1,9 @@
-name: Automatizar Formateo de archivos con Lint
-run-name: Lint automático
-on: [push]
+comment: >
+  name: Automatizar Formateo de archivos con Lint
+  run-name: Lint automático
+  on: [push]
 
-jobs:
+  jobs:
   lint:
     runs-on: ubuntu-latest
     steps:

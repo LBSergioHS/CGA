@@ -1,12 +1,13 @@
-name: SonarCloud
-run-name: SonarCloud
-on:
+comment: >
+  name: SonarCloud
+  run-name: SonarCloud
+  on:
   push:
     branches:
       - main
   pull_request:
     types: [opened, synchronize, reopened]
-jobs:
+  jobs:
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
