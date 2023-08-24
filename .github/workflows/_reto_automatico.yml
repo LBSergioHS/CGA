@@ -1,11 +1,13 @@
 #Enviar un correo automático a gmail cada vez que se haga un evento a elegir
+#Actualmente no es funcional puesto que necesita permisos en el script de python con el correo
+#Ya que solo es una prueba faltaría configurar el correo para dar permisos de conexión y login
 
 name: Correo automático
 run-name: Correo automático
 on: 
   workflow_dispatch:
     inputs:
-      correo:
+      password:
         description: 'Añadir password'  
         required: true
         default: 'aaa'
@@ -27,6 +29,6 @@ jobs:
               echo "DESTINATARIO=${{ env.CORREO_DESTINATARIO }}" >> $GITHUB_ENV &&
               echo "ASUNTO=${{ env.CORREO_ASUNTO }}" >> $GITHUB_ENV &&
               echo "CUERPO=${{ env.CORREO_CUERPO }}" >> $GITHUB_ENV &&
-              echo "PASSWORD=${{ inputs.correo }}" >> $GITHUB_ENV 
+              echo "PASSWORD=${{ inputs.password }}" >> $GITHUB_ENV 
       - name: Correr script
         run: python ./src/hola_correo_automatico.py
