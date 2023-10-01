@@ -23,7 +23,7 @@ jobs:                                                                           
     runs-on: ubuntu-latest                                                      #Sistema operativo donde queremos que corrá
     steps:                                                                      #Tareas que va a realizar
       - name: Checkout                                                          #Nombre de la primera tarea
-        uses: actions/checkout@v3                                               #Checkout previo
+        uses: actions/checkout@v4                                               #Checkout previo
       - name: Definir nombre                                                    #Nombre de la segunda tarea
         run: echo "USERNAME=${{ github.actor}}" >> $GITHUB_ENV                  #Mostrará el nombre del workflows dispatch
       - name: Correr script                                                     #Nombre de la tercera tarea
@@ -33,7 +33,7 @@ jobs:                                                                           
     runs-on: ubuntu-latest                                                      #Sistema operativo donde queremos que corrá
     steps:                                                                      #Tareas que va a realizar
       - name: Ckechout                                                          #Nombre del primer paso
-        uses: actions/checkout@v3                                               #Checkout previo 
+        uses: actions/checkout@v4                                               #Checkout previo 
       - name: Definir nombre de la empresa                                      #Nombre del segundo paso
         run: echo "USERNAME=${{ inputs.nombre_empresa }}" >> $GITHUB_ENV        #Asignar valores a variables de entornos de GitHub
       - name: Correr script                                                     #Nombre del tercer paso
