@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Definir variables
         run: >
               echo "USERNAME=${{ env.NOMBRE }}" >> $GITHUB_ENV &&

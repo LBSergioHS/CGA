@@ -6,7 +6,7 @@ jobs:                                                               #Trabajo que
     runs-on: ubuntu-latest                                          #Sistema operativo donde queremos que corrá
     steps:                                                          #Pasos que realizará
       - name: Checkout                                              #Nombre del primer paso 
-        uses: actions/checkout@v3                                   #Checkout previo 
+        uses: actions/checkout@v4                                   #Checkout previo 
       - name: Definir variable                                      #Nombre del segundo paso
         run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV     #Asignar valores a variables de entornos de GitHub
       - name: Correr script                                         #Nombre del tercer paso
